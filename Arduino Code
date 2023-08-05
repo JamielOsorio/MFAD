@@ -1,0 +1,193 @@
+void displaysegmen (int x);
+int a = 0;
+int b = 0;
+void setup()
+{
+  pinMode(13, OUTPUT); //Segmen A
+  pinMode(12, OUTPUT); //Segmen B
+  pinMode(11, OUTPUT); //Segmen C
+  pinMode(10, OUTPUT); //Segmen D
+  pinMode(9, OUTPUT);  //Segmen E
+  pinMode(8, OUTPUT);  //Segmen F
+  pinMode(7, OUTPUT);  //Segmen G
+  pinMode(4, OUTPUT); //GREEN
+  pinMode(5, OUTPUT);
+  pinMode(2, OUTPUT); //YELLOW
+  pinMode(1, OUTPUT); //RED
+  pinMode(3,INPUT);
+  attachInterrupt(digitalPinToInterrupt(3), cntAll, RISING);
+
+}
+void loop() {
+  //cnt();
+  //while (digitalRead(4) == LOW) {
+  //  cnt();
+  //}
+  a = digitalRead(3);
+  //while (a==LOW){
+    cntGreen();
+    cntYellow();
+    cntRed();
+   //if (a == HIGH) {
+   //break;
+   // }
+  //}
+}
+
+void cntAll() {
+  b = digitalRead(3);
+  while(b==LOW)
+  {cntGreen();
+    cntYellow();
+   cntRed();}
+}
+
+void displaysegmen (int x) {
+  switch (x) {
+	case 1:
+  digitalWrite(13,LOW);
+  digitalWrite(12,HIGH);
+  digitalWrite(11,HIGH);
+  digitalWrite(10,LOW);
+  digitalWrite(9,LOW);
+  digitalWrite(8,LOW);
+  digitalWrite(7,LOW);
+    break;
+
+	case 2:
+  digitalWrite(13,HIGH);
+  digitalWrite(12,HIGH);
+  digitalWrite(11,LOW);
+  digitalWrite(10,HIGH);
+  digitalWrite(9,HIGH);
+  digitalWrite(8,LOW);
+  digitalWrite(7,HIGH);
+  break;
+
+  	case 3:
+  digitalWrite(13,HIGH);
+  digitalWrite(12,HIGH);
+  digitalWrite(11,HIGH);
+  digitalWrite(10,HIGH);
+  digitalWrite(9,LOW);
+  digitalWrite(8,LOW);
+  digitalWrite(7,HIGH);
+  break;
+
+	case 4:
+  digitalWrite(13,LOW);
+  digitalWrite(12,HIGH);
+  digitalWrite(11,HIGH);
+  digitalWrite(10,LOW);
+  digitalWrite(9,LOW);
+  digitalWrite(8,HIGH);
+  digitalWrite(7,HIGH);
+  break;
+    
+    case 5:
+  digitalWrite(13,HIGH);
+  digitalWrite(12,LOW);
+  digitalWrite(11,HIGH);
+  digitalWrite(10,HIGH);
+  digitalWrite(9,LOW);
+  digitalWrite(8,HIGH);
+  digitalWrite(7,HIGH);
+  break;
+    
+	case 6:
+  digitalWrite(13,HIGH);
+  digitalWrite(12,LOW);
+  digitalWrite(11,HIGH);
+  digitalWrite(10,HIGH);
+  digitalWrite(9,HIGH);
+  digitalWrite(8,HIGH);
+  digitalWrite(7,HIGH);
+  break;
+
+	case 7:
+  digitalWrite(13,HIGH);
+  digitalWrite(12,HIGH);
+  digitalWrite(11,HIGH);
+  digitalWrite(10,LOW);
+  digitalWrite(9,LOW);
+  digitalWrite(8,LOW);
+  digitalWrite(7,LOW);
+  break;
+
+    case 8:
+  digitalWrite(13,HIGH);
+  digitalWrite(12,HIGH);
+  digitalWrite(11,HIGH);
+  digitalWrite(10,HIGH);
+  digitalWrite(9,HIGH);
+  digitalWrite(8,HIGH);
+  digitalWrite(7,HIGH);
+  break;
+
+    case 9:
+  digitalWrite(13,HIGH);
+  digitalWrite(12,HIGH);
+  digitalWrite(11,HIGH);
+  digitalWrite(10,HIGH);
+  digitalWrite(9,LOW);
+  digitalWrite(8,HIGH);
+  digitalWrite(7,HIGH);
+  break;
+  }
+  
+}
+
+void cntGreen() {
+  //GREEN
+  digitalWrite(1,0);
+  digitalWrite(2,0);
+  digitalWrite(4,1);
+  displaysegmen(7);
+  delay(1000);
+  displaysegmen(6);
+  delay(1000);
+  displaysegmen(5);
+  delay(1000);
+  displaysegmen(4);
+  delay(1000);
+  displaysegmen(3);
+  delay(1000);
+  displaysegmen(2);
+  delay(1000);
+  displaysegmen(1);
+  delay(1000);
+  
+ }
+
+void cntYellow() {
+  //YELLOW
+  digitalWrite(1,0);
+  digitalWrite(2,1);
+  digitalWrite(4,0);
+  displaysegmen(2);
+  delay(1000);
+  displaysegmen(1);
+  delay(1000);
+}
+
+void cntRed(){
+  //RED
+  digitalWrite(1,1);
+  digitalWrite(2,0);
+  digitalWrite(4,0);
+  displaysegmen(7);
+  delay(1000);
+  displaysegmen(6);
+  delay(1000);
+  displaysegmen(5);
+  delay(1000);
+  displaysegmen(4);
+  delay(1000);
+  displaysegmen(3);
+  delay(1000);
+  displaysegmen(2);
+  delay(1000);
+  displaysegmen(1);
+  delay(1000);
+}
+
