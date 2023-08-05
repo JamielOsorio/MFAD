@@ -15,3 +15,17 @@ Components:
 -Normally close button (You can use a normally open button, just change the condition in case 1 from "!=" to "=")
 
 -LCD I2C 16x4 and 20x4 (To use the two LCDs together, close A0 by soldering. In our case we closed A0 on the 16x2)
+
+
+Chamber Materials:
+
+.4 Aluminum Sheet
+, Screw Hooks
+, and Rivets
+
+
+Enclosure:
+
+Plyboard
+, Aluminum Sheet
+, and Rubber padding/gaskets (Prevent components from making contact with Aluminum Sheet)
